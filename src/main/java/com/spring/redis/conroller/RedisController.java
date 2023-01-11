@@ -25,7 +25,7 @@ public class RedisController {
 
 
         redisDao.setValues("name",name); // key = name / value = 이재혁
-        log.info("# 생성완료 !");
+        log.info("# 생성완료 ! key = name / value = {}",name);
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
@@ -34,7 +34,7 @@ public class RedisController {
 
 
         redisDao.setValues("name",name, Duration.ofMillis(10000)); // 1초후 소멸
-        log.info("# 생성완료 ! [소멸 시간 = 10초후]");
+        log.info("# 생성완료 ! key = name / value = {} [소멸 시간 = 10초후]",name);
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
@@ -43,7 +43,7 @@ public class RedisController {
     public ResponseEntity getKey(){
 
         String values = redisDao.getValues("name"); // redis value 가져오기
-        log.info("name = {}", values);
+        log.info("# 조회완료 ! key = name / value = {}", values);
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
