@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -97,9 +98,9 @@ public class RedisController {
         String values2 = redisDao.getHashOps("dhfif718@naver.com", "view");
         String values3 = redisDao.getHashOps("dhfif718@naver.com", "token");
 
-        log.info("# 생성완료 ! key = dhfif718@naver.com / fields = [like : {}]", values1);
-        log.info("# 생성완료 ! key = dhfif718@naver.com / fields = [view : {}]", values2);
-        log.info("# 생성완료 ! key = dhfif718@naver.com / fields = [token : {}]", values3);
+        log.info("# 조회완료 ! key = dhfif718@naver.com / fields = [view : {}]", values2);
+        log.info("# 조회완료 ! key = dhfif718@naver.com / fields = [like : {}]", values1);
+        log.info("# 조회완료 ! key = dhfif718@naver.com / fields = [token : {}]", values3);
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
